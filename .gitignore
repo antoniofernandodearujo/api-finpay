@@ -1,0 +1,28 @@
+# Ignore o diretório de dados do PostgreSQL
+/data
+
+# Ignore arquivos binários do Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/api-finpay  # O binário gerado
+
+# Ignore dependências do Go
+vendor/
+
+# Ignore arquivos de configuração do IDE (opcional)
+.idea/
+.vscode/
+
+# Ignore arquivos de log
+*.log
+
+# Ignore arquivos de backup
+*~
+*.bak
+*.tmp
+
+# Ignore a pasta de build do Docker (se houver)
+build/
