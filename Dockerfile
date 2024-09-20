@@ -1,5 +1,5 @@
-# Use a imagem base do Go
-FROM golang:1.22.2 AS builder
+# Use uma imagem base do Go
+FROM golang:1.22.2-alpine AS builder
 
 # Defina o diretório de trabalho
 WORKDIR /app
@@ -12,10 +12,11 @@ RUN go mod download
 COPY . .
 
 # Compile a aplicação
-RUN go build -o api-finpay .
+RUN CGO_ENABLED=0 GOOS=linux go build -o api-finpay .
 
 # Use uma imagem menor para executar
 FROM alpine:latest
+RUN apk add --no-cache libc6-compat
 WORKDIR /root/
 COPY --from=builder /app/api-finpay .
 

@@ -11,7 +11,7 @@ var DBPool *pgxpool.Pool
 
 func init() {
 	var err error
-	DBPool, err = pgxpool.Connect(context.Background(), "postgres://admin:admin@localhost:5432/finpay")
+	DBPool, err = pgxpool.Connect(context.Background(), "postgres://admin:admin@db:5432/finpay")
 
 	if err != nil {
 		log.Fatal("Erro ao conectar com o banco de dados: %v\n", err)
