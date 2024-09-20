@@ -43,8 +43,11 @@ func GetAllAlunos(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetAlunoByNome(w http.ResponseWriter, r *http.Request) {
-	nome := mux.Vars(r)["nome"]
-	query := "SELECT id, name, turma_id FROM alunos WHERE name ILIKE '%' || $1 || '%'"
+	nome := mux.Vars(r)["name"]
+
+	// Query para buscar alunos pelo nome
+	query := "SELECT id, name, turma_id FROM name WHERE nome ILIKE '%' || $1 || '%'"
+
 	rows, err := db.DBPool.Query(r.Context(), query, nome)
 	if err != nil {
 		http.Error(w, "Erro ao buscar alunos", http.StatusInternalServerError)
