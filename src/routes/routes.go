@@ -14,7 +14,7 @@ func SetupRoutes(r *mux.Router) {
 	// busca todos os alunos
 	r.HandleFunc("/alunos", controllers.GetAllAlunos).Methods("GET")
 	// busca um aluno por id
-	r.HandleFunc("/alunos/nome/{nome}", controllers.GetAlunoByNome).Methods("GET")
+	r.HandleFunc("/alunos/nome/{name}", controllers.GetAlunoByNome).Methods("GET")
 	// busca alunos por turma
 	r.HandleFunc("/alunos/turma/{id:[0-9]+}", controllers.GetAlunosByTurmaID).Methods("GET")
 	// atualiza um aluno
