@@ -1,17 +1,5 @@
 version: '3.8'
 services:
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: finpay
-    volumes:
-      - ./data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
   api:
     build:
       context: .
@@ -19,5 +7,3 @@ services:
     image: finpay-api
     ports:
       - "8080:8080"
-    depends_on:
-      - db
