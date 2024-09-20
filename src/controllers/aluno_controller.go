@@ -35,7 +35,7 @@ func GetAllAlunos(w http.ResponseWriter, r *http.Request) {
 
 	for rows.Next() {
 		var aluno models.Aluno
-		rows.Scan(&aluno.ID, &aluno.Nome, &aluno.TurmaID, &aluno.Pagamento)
+		rows.Scan(&aluno.ID, &aluno.Nome, &aluno.TurmaID)
 		alunos = append(alunos, aluno)
 	}
 
@@ -55,7 +55,7 @@ func GetAlunoByNome(w http.ResponseWriter, r *http.Request) {
 	var alunos []models.Aluno
 	for rows.Next() {
 		var aluno models.Aluno
-		if err := rows.Scan(&aluno.ID, &aluno.Nome, &aluno.TurmaID, &aluno.Pagamento); err != nil {
+		if err := rows.Scan(&aluno.ID, &aluno.Nome, &aluno.TurmaID); err != nil {
 			http.Error(w, "Erro ao ler dados do aluno", http.StatusInternalServerError)
 			return
 		}
