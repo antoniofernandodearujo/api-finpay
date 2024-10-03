@@ -1,4 +1,5 @@
-🛠️ API with Golang, Docker, and PostgreSQL 🚀
+# 🛠️ API with Golang, Docker, and PostgreSQL 🚀
+
 This project is a REST API built with Golang, using PostgreSQL as the database, and Docker for managing dependencies and the development environment. The API is deployed on Railway.
 
 ✨ Features
